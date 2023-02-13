@@ -1,0 +1,16 @@
+{
+    "name": "GigaceeTools.Service.Sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4ddf577e5319e423cb0317c35ba02965"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
