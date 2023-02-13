@@ -13,7 +13,7 @@
         {
             "displayName": "Sample",
             "description": "Register and use a sample service.",
-            "path": "Samples~"
+            "path": "Sample~"
         }
     ]
 }
