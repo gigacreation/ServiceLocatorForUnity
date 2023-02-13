@@ -1,4 +1,4 @@
-# Service Locator
+# ServiceLocator
 
 The Service Locator in C#.
 

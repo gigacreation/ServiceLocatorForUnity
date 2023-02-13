@@ -1,0 +1,19 @@
+{
+    "name": "com.gigacee.servicelocator",
+    "version": "1.0.0",
+    "displayName": "Service Locator",
+    "description": "The Service Locator in C#.",
+    "unity": "2021.3",
+    "author": {
+        "name": "Gigacee",
+        "email": "gigacee@gigacreation.jp",
+        "url": "https://www.gigacreation.jp/"
+    },
+    "samples": [
+        {
+            "displayName": "Sample",
+            "description": "Register and use a sample service.",
+            "path": "Samples~"
+        }
+    ]
+}
