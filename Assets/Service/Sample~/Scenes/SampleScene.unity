@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 168951632}
   - component: {fileID: 168951633}
   m_Layer: 0
-  m_Name: ServiceLocatorRegister
+  m_Name: RegisterServiceSample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b214e9d82fdd44d168ce6abe4e602167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _register: 1
-  _unregister: 1
+  _registerOnAwake: 1
+  _unregisterAfterOneSecond: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 1353384386}
   - component: {fileID: 1353384385}
   m_Layer: 0
-  m_Name: ServiceLocatorUse
+  m_Name: UseServiceSample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d97d0eac077482382701d520f62597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tryGetServiceOnStart: 1
+  _logIfServiceIsUnregistered: 1
 --- !u!4 &1353384386
 Transform:
   m_ObjectHideFlags: 0

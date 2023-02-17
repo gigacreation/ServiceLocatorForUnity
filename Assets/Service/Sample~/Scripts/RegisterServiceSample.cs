@@ -5,8 +5,8 @@ namespace GigaceeTools.Service.Sample
 {
     public class RegisterServiceSample : MonoBehaviour
     {
-        [SerializeField] private bool _register;
-        [SerializeField] private bool _unregister;
+        [SerializeField] private bool _registerOnAwake;
+        [SerializeField] private bool _unregisterAfterOneSecond;
 
         private ISampleService _sampleService;
 
@@ -14,7 +14,7 @@ namespace GigaceeTools.Service.Sample
         {
             _sampleService = new SampleService();
 
-            if (_register)
+            if (_registerOnAwake)
             {
                 ServiceLocator.Register(_sampleService);
             }
@@ -22,7 +22,7 @@ namespace GigaceeTools.Service.Sample
 
         private IEnumerator Start()
         {
-            if (_unregister)
+            if (_unregisterAfterOneSecond)
             {
                 yield return new WaitForSeconds(1f);
 
