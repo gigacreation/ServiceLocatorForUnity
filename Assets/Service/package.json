@@ -2,7 +2,7 @@
     "name": "com.gigacee.servicelocator",
     "version": "1.0.0",
     "displayName": "Service Locator",
-    "description": "The Service Locator in C#.",
+    "description": "This makes the Service Locator available to your Unity project.",
     "unity": "2021.3",
     "author": {
         "name": "Gigacee",
