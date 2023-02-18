@@ -116,7 +116,7 @@ public interface ISampleService : IService
 
 ### Package Manager
 
-- `https://github.com/gigacee/ServiceLocatorForUnity.git?path=Assets/Service`
+- `https://github.com/gigacreation/ServiceLocatorForUnity.git?path=Assets/Service`
 
 ### Manual
 
