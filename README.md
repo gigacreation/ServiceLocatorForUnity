@@ -11,6 +11,7 @@ TODO
 1. Implement `IService` in your class that you want to use via the service locator.
 
 ```cs
+using GigaCreation.Tools.Service;
 using UnityEngine;
 
 public class SampleService : IService
@@ -25,7 +26,7 @@ public class SampleService : IService
 2. Register your class in the service locator.
 
 ```cs
-using System.Collections;
+using GigaCreation.Tools.Service;
 using UnityEngine;
 
 public class RegisterServiceSample : MonoBehaviour
@@ -49,13 +50,14 @@ public class RegisterServiceSample : MonoBehaviour
 3. You can use your class anywhere!
 
 ```cs
+using GigaCreation.Tools.Service;
 using UnityEngine;
 
 public class UseServiceSample : MonoBehaviour
 {
     private void Start()
     {
-        var sampleService = ServiceLocator.Get<SampleService>()
+        var sampleService = ServiceLocator.Get<SampleService>();
 
         sampleService.Bark();
     }
@@ -67,6 +69,8 @@ public class UseServiceSample : MonoBehaviour
 If your class implements `IDisposable` , `Dispose()` will be called on unregister.
 
 ```cs
+using System;
+using GigaCreation.Tools.Service;
 using UnityEngine;
 
 public class SampleService : IService, IDisposable
@@ -89,7 +93,7 @@ public class SampleService : IService, IDisposable
 Registration to the service locator via the interface can limit the methods that can be called.
 
 ```cs
-using System;
+using GigaCreation.Tools.Service;
 using UnityEngine;
 
 public class SampleService : ISampleService
