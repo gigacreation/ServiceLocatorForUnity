@@ -121,3 +121,7 @@ public interface ISampleService : IService
 ### Manual
 
 - Copy `Assets/Service/` to your project.
+
+## API References
+
+<https://gigacreation.github.io/ServiceLocatorForUnity/api/GigaCreation.Tools.Service.ServiceLocator.html>
