@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GigaceeTools.Service.Sample
+namespace GigaCreation.Tools.Service.Sample01
 {
     public class UseServiceSample : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace GigaceeTools.Service.Sample
         {
             if (_tryGetServiceOnStart)
             {
-                if (ServiceLocator.TryGet(out ISampleService sampleService))
+                if (ServiceLocator.TryGet(out SampleService sampleService))
                 {
                     sampleService.Bark();
                 }

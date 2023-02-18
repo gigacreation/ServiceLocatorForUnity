@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-namespace GigaceeTools.Service.Sample
+namespace GigaCreation.Tools.Service.Sample01
 {
     public class RegisterServiceSample : MonoBehaviour
     {
         [SerializeField] private bool _registerOnAwake;
         [SerializeField] private bool _unregisterAfterOneSecond;
 
-        private ISampleService _sampleService;
+        private SampleService _sampleService;
 
         private void Awake()
         {

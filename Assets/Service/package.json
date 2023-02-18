@@ -1,19 +1,24 @@
 {
-    "name": "com.gigacee.servicelocator",
+    "name": "jp.gigacreation.tools.servicelocator",
     "version": "1.0.0",
     "displayName": "Service Locator",
-    "description": "This makes the Service Locator available to your Unity project.",
+    "description": "This package provides a service locator for your Unity project.",
     "unity": "2021.3",
     "author": {
-        "name": "Gigacee",
+        "name": "GIGA CREATION",
         "email": "gigacee@gigacreation.jp",
         "url": "https://www.gigacreation.jp/"
     },
     "samples": [
         {
-            "displayName": "Sample",
-            "description": "Register and use a sample service.",
-            "path": "Sample~"
+            "displayName": "01 - Simple",
+            "description": "Register and get a service simply.",
+            "path": "Samples~/01_Simple"
+        },
+        {
+            "displayName": "02 - Use with an interface",
+            "description": "Register and get a service via an interface.",
+            "path": "Samples~/02_UseWithInterface"
         }
     ]
 }

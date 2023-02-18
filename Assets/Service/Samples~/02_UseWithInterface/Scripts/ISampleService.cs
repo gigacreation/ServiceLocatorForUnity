@@ -1,6 +1,6 @@
 using System;
 
-namespace GigaceeTools.Service.Sample
+namespace GigaCreation.Tools.Service.Sample02
 {
     public interface ISampleService : IService, IDisposable
     {
