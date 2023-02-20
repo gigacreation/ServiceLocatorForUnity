@@ -4,7 +4,7 @@ This package provides a service locator for your Unity project.
 
 ## 日本語による説明 / Explanation in Japanese
 
-TODO
+[Unity 向けのサービスロケーターを公開しました](https://blog.gigacreation.jp/entry/2023/02/20/205236)
 
 ## Usage
 
@@ -82,7 +82,7 @@ public class SampleService : IService, IDisposable
 
     public void Dispose()
     {
-        // ISampleService inherits IDisposable, so this method is called on unregister.
+        // SampleService implements IDisposable, so this method is called on unregister.
         Debug.Log("SampleService disposed.");
     }
 }
