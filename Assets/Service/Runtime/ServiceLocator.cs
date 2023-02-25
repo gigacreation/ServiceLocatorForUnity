@@ -1,3 +1,5 @@
+// ReSharper disable ArrangeObjectCreationWhenTypeEvident
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ namespace GigaCreation.Tools.Service
         /// <summary>
         /// The dictionary to register services.
         /// </summary>
-        private static readonly Dictionary<Type, IService> s_services = new();
+        private static readonly Dictionary<Type, IService> s_services = new Dictionary<Type, IService>();
 
         /// <summary>
         /// Register a service. If a service of the same type is already registered, you should unregister it first.
