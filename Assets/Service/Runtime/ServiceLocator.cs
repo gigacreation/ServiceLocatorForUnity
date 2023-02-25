@@ -29,10 +29,20 @@ namespace GigaCreation.Tools.Service
 
             Type type = typeof(TService);
 
+#if UNITY_2021_2_OR_NEWER
             if (!s_services.TryAdd(type, service))
             {
                 Debug.LogWarning($"A service of the same type is already registered: {type.Name}");
             }
+#else
+            if (s_services.ContainsKey(type))
+            {
+                Debug.LogWarning($"A service of the same type is already registered: {type.Name}");
+                return;
+            }
+
+            s_services.Add(type, service);
+#endif
         }
 
         /// <summary>
@@ -42,20 +52,21 @@ namespace GigaCreation.Tools.Service
         /// <typeparam name="TService">The type of the service.</typeparam>
         public static void Unregister<TService>(TService service) where TService : class, IService
         {
-            (Type type, IService registeredService) = s_services.SingleOrDefault(pair => Equals(pair.Value, service));
+            KeyValuePair<Type, IService> registeredService
+                = s_services.SingleOrDefault(pair => Equals(pair.Value, service));
 
-            if (type == null)
+            if (registeredService.Key == null)
             {
                 Debug.LogWarning($"The passed service is not registered: {service.GetType()}");
                 return;
             }
 
-            if (registeredService is IDisposable disposable)
+            if (registeredService.Value is IDisposable disposable)
             {
                 disposable.Dispose();
             }
 
-            s_services.Remove(type);
+            s_services.Remove(registeredService.Key);
         }
 
         /// <summary>
