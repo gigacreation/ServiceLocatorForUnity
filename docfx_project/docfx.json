@@ -4,9 +4,9 @@
       "src": [
         {
           "files": [
-            "**.csproj"
+            "GigaCreation.Tools.Service.csproj"
           ],
-          "src": "../../"
+          "src": "../"
         }
       ],
       "dest": "api",
