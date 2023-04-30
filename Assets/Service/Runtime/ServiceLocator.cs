@@ -1,5 +1,3 @@
-// ReSharper disable ArrangeObjectCreationWhenTypeEvident
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +10,7 @@ namespace GigaCreation.Tools.Service
         /// <summary>
         /// The dictionary to register services.
         /// </summary>
-        private static readonly Dictionary<Type, IService> s_services = new Dictionary<Type, IService>();
+        private static readonly Dictionary<Type, IService> s_services = new();
 
         /// <summary>
         /// Register a service. If a service of the same type is already registered, you should unregister it first.
@@ -29,7 +27,7 @@ namespace GigaCreation.Tools.Service
 
             Type type = typeof(TService);
 
-#if UNITY_2021_2_OR_NEWER
+#if !UNITY_2021_2_OR_NEWER
             if (!s_services.TryAdd(type, service))
             {
                 Debug.LogWarning($"A service of the same type is already registered: {type.Name}");
@@ -53,7 +51,7 @@ namespace GigaCreation.Tools.Service
         public static void Unregister<TService>(TService service) where TService : class, IService
         {
             KeyValuePair<Type, IService> registeredService
-                = s_services.SingleOrDefault(pair => Equals(pair.Value, service));
+                = s_services.FirstOrDefault(pair => Equals(pair.Value, service));
 
             if (registeredService.Key == null)
             {
@@ -72,58 +70,111 @@ namespace GigaCreation.Tools.Service
         /// <summary>
         /// Checks if a service of the specified type is registered.
         /// </summary>
+        /// <param name="includeDerivedType">If true, the search includes derived types.</param>
         /// <typeparam name="TService">The type of a service to check.</typeparam>
         /// <returns>Returns true if a service of the given type is registered.</returns>
-        public static bool IsRegistered<TService>() where TService : class, IService
+        public static bool IsRegistered<TService>(bool includeDerivedType = false) where TService : class, IService
         {
-            return s_services.ContainsKey(typeof(TService));
+            Type type = typeof(TService);
+
+            if (s_services.ContainsKey(type))
+            {
+                return true;
+            }
+
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (includeDerivedType && s_services.Any(pair => type.IsAssignableFrom(pair.Key)))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
         /// Checks if the specified service is registered.
         /// </summary>
         /// <param name="service">The service to check.</param>
+        /// <param name="includeDerivedType">If true, the search includes derived types.</param>
         /// <typeparam name="TService">The type of a service to check.</typeparam>
         /// <returns>Returns true if the given service is registered.</returns>
-        public static bool IsRegistered<TService>(TService service) where TService : class, IService
+        public static bool IsRegistered<TService>(TService service, bool includeDerivedType = false)
+            where TService : class, IService
         {
-            return s_services.ContainsValue(service);
+            if (s_services.ContainsValue(service))
+            {
+                return true;
+            }
+
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (includeDerivedType && s_services.Any(pair => service.GetType().IsAssignableFrom(pair.Key)))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
         /// Get a service.
         /// </summary>
+        /// <param name="includeDerivedType">If true, the search includes derived types.</param>
         /// <typeparam name="TService">The type of a service.</typeparam>
         /// <returns>The service of the requested type.</returns>
-        public static TService Get<TService>() where TService : class, IService
+        public static TService Get<TService>(bool includeDerivedType = false) where TService : class, IService
         {
             Type type = typeof(TService);
 
-            if (!s_services.TryGetValue(type, out IService service))
+            if (s_services.TryGetValue(type, out IService service))
             {
-                Debug.LogError($"A service of the given type is not registered: {type.Name}");
-                return null;
+                return service as TService;
             }
 
-            return service as TService;
+            if (includeDerivedType)
+            {
+                IService derivedService = s_services.FirstOrDefault(pair => type.IsAssignableFrom(pair.Key)).Value;
+
+                if (derivedService != null)
+                {
+                    return derivedService as TService;
+                }
+            }
+
+            Debug.LogError($"A service of the given type is not registered: {type.Name}");
+            return null;
         }
 
         /// <summary>
         /// Try to get a service.
         /// </summary>
         /// <param name="service">The service of the requested type.</param>
+        /// <param name="includeDerivedType">If true, the search includes derived types.</param>
         /// <typeparam name="TService">The type of a service.</typeparam>
         /// <returns>Returns true if the get was successful.</returns>
-        public static bool TryGet<TService>(out TService service) where TService : class, IService
+        public static bool TryGet<TService>(out TService service, bool includeDerivedType = false)
+            where TService : class, IService
         {
-            if (!s_services.TryGetValue(typeof(TService), out IService registeredService))
+            Type type = typeof(TService);
+
+            if (s_services.TryGetValue(type, out IService registeredService))
             {
-                service = null;
-                return false;
+                service = registeredService as TService;
+                return true;
             }
 
-            service = registeredService as TService;
-            return true;
+            if (includeDerivedType)
+            {
+                IService derivedService = s_services.FirstOrDefault(pair => type.IsAssignableFrom(pair.Key)).Value;
+
+                if (derivedService != null)
+                {
+                    service = derivedService as TService;
+                    return true;
+                }
+            }
+
+            service = null;
+            return false;
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 {
     "name": "jp.gigacreation.tools.servicelocator",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "displayName": "Service Locator",
     "description": "This package provides a service locator for your Unity project.",
     "unity": "2019.4",
@@ -19,6 +19,11 @@
             "displayName": "02 - Use with an interface",
             "description": "Register and get a service via an interface.",
             "path": "Samples~/02_UseWithInterface"
+        },
+        {
+            "displayName": "03 - Include derived type",
+            "description": "Register a derived service and get it via the base type.",
+            "path": "Samples~/03_IncludeDerivedType"
         }
     ]
 }
