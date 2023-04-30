@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.0.0 (2023-05-01)
+## 1.1.0 (2023-05-01)
 
 - You can now include derived types in the search for registered services.
 
