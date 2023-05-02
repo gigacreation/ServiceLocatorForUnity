@@ -26,15 +26,15 @@ references:
   isSpec: "True"
   fullName: GigaCreation.Tools.Service.ServiceLocator.Get
   nameWithType: ServiceLocator.Get
-- uid: GigaCreation.Tools.Service.ServiceLocator.Get``1
-  name: Get<TService>()
-  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_Get__1
-  commentId: M:GigaCreation.Tools.Service.ServiceLocator.Get``1
-  name.vb: Get(Of TService)()
-  fullName: GigaCreation.Tools.Service.ServiceLocator.Get<TService>()
-  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.Get(Of TService)()
-  nameWithType: ServiceLocator.Get<TService>()
-  nameWithType.vb: ServiceLocator.Get(Of TService)()
+- uid: GigaCreation.Tools.Service.ServiceLocator.Get``1(System.Boolean)
+  name: Get<TService>(bool)
+  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_Get__1_System_Boolean_
+  commentId: M:GigaCreation.Tools.Service.ServiceLocator.Get``1(System.Boolean)
+  name.vb: Get(Of TService)(Boolean)
+  fullName: GigaCreation.Tools.Service.ServiceLocator.Get<TService>(bool)
+  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.Get(Of TService)(Boolean)
+  nameWithType: ServiceLocator.Get<TService>(bool)
+  nameWithType.vb: ServiceLocator.Get(Of TService)(Boolean)
 - uid: GigaCreation.Tools.Service.ServiceLocator.IsRegistered*
   name: IsRegistered
   href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_IsRegistered_
@@ -42,24 +42,24 @@ references:
   isSpec: "True"
   fullName: GigaCreation.Tools.Service.ServiceLocator.IsRegistered
   nameWithType: ServiceLocator.IsRegistered
-- uid: GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1
-  name: IsRegistered<TService>()
-  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_IsRegistered__1
-  commentId: M:GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1
-  name.vb: IsRegistered(Of TService)()
-  fullName: GigaCreation.Tools.Service.ServiceLocator.IsRegistered<TService>()
-  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.IsRegistered(Of TService)()
-  nameWithType: ServiceLocator.IsRegistered<TService>()
-  nameWithType.vb: ServiceLocator.IsRegistered(Of TService)()
-- uid: GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1(``0)
-  name: IsRegistered<TService>(TService)
-  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_IsRegistered__1___0_
-  commentId: M:GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1(``0)
-  name.vb: IsRegistered(Of TService)(TService)
-  fullName: GigaCreation.Tools.Service.ServiceLocator.IsRegistered<TService>(TService)
-  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.IsRegistered(Of TService)(TService)
-  nameWithType: ServiceLocator.IsRegistered<TService>(TService)
-  nameWithType.vb: ServiceLocator.IsRegistered(Of TService)(TService)
+- uid: GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1(``0,System.Boolean)
+  name: IsRegistered<TService>(TService, bool)
+  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_IsRegistered__1___0_System_Boolean_
+  commentId: M:GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1(``0,System.Boolean)
+  name.vb: IsRegistered(Of TService)(TService, Boolean)
+  fullName: GigaCreation.Tools.Service.ServiceLocator.IsRegistered<TService>(TService, bool)
+  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.IsRegistered(Of TService)(TService, Boolean)
+  nameWithType: ServiceLocator.IsRegistered<TService>(TService, bool)
+  nameWithType.vb: ServiceLocator.IsRegistered(Of TService)(TService, Boolean)
+- uid: GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1(System.Boolean)
+  name: IsRegistered<TService>(bool)
+  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_IsRegistered__1_System_Boolean_
+  commentId: M:GigaCreation.Tools.Service.ServiceLocator.IsRegistered``1(System.Boolean)
+  name.vb: IsRegistered(Of TService)(Boolean)
+  fullName: GigaCreation.Tools.Service.ServiceLocator.IsRegistered<TService>(bool)
+  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.IsRegistered(Of TService)(Boolean)
+  nameWithType: ServiceLocator.IsRegistered<TService>(bool)
+  nameWithType.vb: ServiceLocator.IsRegistered(Of TService)(Boolean)
 - uid: GigaCreation.Tools.Service.ServiceLocator.Register*
   name: Register
   href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_Register_
@@ -83,15 +83,15 @@ references:
   isSpec: "True"
   fullName: GigaCreation.Tools.Service.ServiceLocator.TryGet
   nameWithType: ServiceLocator.TryGet
-- uid: GigaCreation.Tools.Service.ServiceLocator.TryGet``1(``0@)
-  name: TryGet<TService>(out TService)
-  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_TryGet__1___0__
-  commentId: M:GigaCreation.Tools.Service.ServiceLocator.TryGet``1(``0@)
-  name.vb: TryGet(Of TService)(TService)
-  fullName: GigaCreation.Tools.Service.ServiceLocator.TryGet<TService>(out TService)
-  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.TryGet(Of TService)(TService)
-  nameWithType: ServiceLocator.TryGet<TService>(out TService)
-  nameWithType.vb: ServiceLocator.TryGet(Of TService)(TService)
+- uid: GigaCreation.Tools.Service.ServiceLocator.TryGet``1(``0@,System.Boolean)
+  name: TryGet<TService>(out TService, bool)
+  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_TryGet__1___0__System_Boolean_
+  commentId: M:GigaCreation.Tools.Service.ServiceLocator.TryGet``1(``0@,System.Boolean)
+  name.vb: TryGet(Of TService)(TService, Boolean)
+  fullName: GigaCreation.Tools.Service.ServiceLocator.TryGet<TService>(out TService, bool)
+  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.TryGet(Of TService)(TService, Boolean)
+  nameWithType: ServiceLocator.TryGet<TService>(out TService, bool)
+  nameWithType.vb: ServiceLocator.TryGet(Of TService)(TService, Boolean)
 - uid: GigaCreation.Tools.Service.ServiceLocator.Unregister*
   name: Unregister
   href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_Unregister_
