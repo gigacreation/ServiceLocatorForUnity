@@ -1,9 +1,9 @@
 {
     "name": "jp.gigacreation.tools.servicelocator",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "displayName": "Service Locator",
     "description": "This package provides a service locator for your Unity project.",
-    "unity": "2019.4",
+    "unity": "2021.3",
     "author": {
         "name": "GIGA CREATION",
         "email": "gigacee@gigacreation.jp",
@@ -24,6 +24,11 @@
             "displayName": "03 - Include derived type",
             "description": "Register a derived service and get it via the base type.",
             "path": "Samples~/03_IncludeDerivedType"
-        }
+        },
+        {
+            "displayName": "04 - Asynchronous disposal",
+            "description": "Dispose a service asynchronously.",
+            "path": "Samples~/04_AsynchronousDisposal"
+        },
     ]
 }

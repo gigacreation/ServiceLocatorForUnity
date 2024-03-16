@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace GigaCreation.Tools.Service
@@ -27,20 +28,10 @@ namespace GigaCreation.Tools.Service
 
             Type type = typeof(TService);
 
-#if !UNITY_2021_2_OR_NEWER
             if (!s_services.TryAdd(type, service))
             {
                 Debug.LogWarning($"A service of the same type is already registered: {type.Name}");
             }
-#else
-            if (s_services.ContainsKey(type))
-            {
-                Debug.LogWarning($"A service of the same type is already registered: {type.Name}");
-                return;
-            }
-
-            s_services.Add(type, service);
-#endif
         }
 
         /// <summary>
@@ -62,6 +53,41 @@ namespace GigaCreation.Tools.Service
             if (registeredService.Value is IDisposable disposable)
             {
                 disposable.Dispose();
+            }
+
+            if (registeredService.Value is IAsyncDisposable asyncDisposable)
+            {
+                asyncDisposable.DisposeAsync();
+            }
+
+            s_services.Remove(registeredService.Key);
+        }
+
+        /// <summary>
+        /// Unregister a service asynchronously.
+        /// </summary>
+        /// <param name="service">The service to unregister.</param>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        public static async Task UnregisterAsync<TService>(TService service)
+            where TService : class, IService
+        {
+            KeyValuePair<Type, IService> registeredService
+                = s_services.FirstOrDefault(pair => Equals(pair.Value, service));
+
+            if (registeredService.Key == null)
+            {
+                Debug.LogWarning($"The passed service is not registered: {service.GetType()}");
+                return;
+            }
+
+            if (registeredService.Value is IDisposable disposable)
+            {
+                disposable.Dispose();
+            }
+
+            if (registeredService.Value is IAsyncDisposable asyncDisposable)
+            {
+                await asyncDisposable.DisposeAsync();
             }
 
             s_services.Remove(registeredService.Key);
