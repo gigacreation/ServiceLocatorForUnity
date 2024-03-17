@@ -108,3 +108,19 @@ references:
   fullName.vb: GigaCreation.Tools.Service.ServiceLocator.Unregister(Of TService)(TService)
   nameWithType: ServiceLocator.Unregister<TService>(TService)
   nameWithType.vb: ServiceLocator.Unregister(Of TService)(TService)
+- uid: GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync*
+  name: UnregisterAsync
+  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_UnregisterAsync_
+  commentId: Overload:GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync
+  isSpec: "True"
+  fullName: GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync
+  nameWithType: ServiceLocator.UnregisterAsync
+- uid: GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync``1(``0)
+  name: UnregisterAsync<TService>(TService)
+  href: api/GigaCreation.Tools.Service.ServiceLocator.html#GigaCreation_Tools_Service_ServiceLocator_UnregisterAsync__1___0_
+  commentId: M:GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync``1(``0)
+  name.vb: UnregisterAsync(Of TService)(TService)
+  fullName: GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync<TService>(TService)
+  fullName.vb: GigaCreation.Tools.Service.ServiceLocator.UnregisterAsync(Of TService)(TService)
+  nameWithType: ServiceLocator.UnregisterAsync<TService>(TService)
+  nameWithType.vb: ServiceLocator.UnregisterAsync(Of TService)(TService)
