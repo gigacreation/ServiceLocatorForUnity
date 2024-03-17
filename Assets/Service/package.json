@@ -30,5 +30,10 @@
             "description": "Dispose a service asynchronously.",
             "path": "Samples~/04_AsynchronousDisposal"
         },
+        {
+            "displayName": "05 - Use with UniTask",
+            "description": "Dispose a service asynchronously with UniTask.",
+            "path": "Samples~/05_UseWithUniTask"
+        }
     ]
 }

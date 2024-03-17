@@ -2,7 +2,8 @@
     "name": "GigaCreation.Tools.Service.Sample04",
     "rootNamespace": "",
     "references": [
-        "GUID:4ddf577e5319e423cb0317c35ba02965"
+        "GUID:4ddf577e5319e423cb0317c35ba02965",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -11,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.cysharp.unitask",
+            "expression": "",
+            "define": "SERVICELOCATOR_UNITASK_SUPPORT"
+        }
+    ],
     "noEngineReferences": false
 }

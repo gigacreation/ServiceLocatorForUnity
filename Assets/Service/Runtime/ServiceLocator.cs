@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
+#if SERVICELOCATOR_UNITASK_SUPPORT
+using Cysharp.Threading.Tasks;
+#else
+using System.Threading.Tasks;
+#endif
 
 namespace GigaCreation.Tools.Service
 {
@@ -50,6 +54,8 @@ namespace GigaCreation.Tools.Service
                 return;
             }
 
+            s_services.Remove(registeredService.Key);
+
             if (registeredService.Value is IDisposable disposable)
             {
                 disposable.Dispose();
@@ -60,7 +66,12 @@ namespace GigaCreation.Tools.Service
                 asyncDisposable.DisposeAsync();
             }
 
-            s_services.Remove(registeredService.Key);
+#if SERVICELOCATOR_UNITASK_SUPPORT
+            if (registeredService.Value is IUniTaskAsyncDisposable uniTaskAsyncDisposable)
+            {
+                uniTaskAsyncDisposable.DisposeAsync();
+            }
+#endif
         }
 
         /// <summary>
@@ -68,8 +79,13 @@ namespace GigaCreation.Tools.Service
         /// </summary>
         /// <param name="service">The service to unregister.</param>
         /// <typeparam name="TService">The type of the service.</typeparam>
-        public static async Task UnregisterAsync<TService>(TService service)
-            where TService : class, IService
+        public static async
+#if SERVICELOCATOR_UNITASK_SUPPORT
+            UniTask
+#else
+            ValueTask
+#endif
+            UnregisterAsync<TService>(TService service) where TService : class, IService
         {
             KeyValuePair<Type, IService> registeredService
                 = s_services.FirstOrDefault(pair => Equals(pair.Value, service));
@@ -79,6 +95,8 @@ namespace GigaCreation.Tools.Service
                 Debug.LogWarning($"The passed service is not registered: {service.GetType()}");
                 return;
             }
+
+            s_services.Remove(registeredService.Key);
 
             if (registeredService.Value is IDisposable disposable)
             {
@@ -90,7 +108,12 @@ namespace GigaCreation.Tools.Service
                 await asyncDisposable.DisposeAsync();
             }
 
-            s_services.Remove(registeredService.Key);
+#if SERVICELOCATOR_UNITASK_SUPPORT
+            if (registeredService.Value is IUniTaskAsyncDisposable uniTaskAsyncDisposable)
+            {
+                await uniTaskAsyncDisposable.DisposeAsync();
+            }
+#endif
         }
 
         /// <summary>

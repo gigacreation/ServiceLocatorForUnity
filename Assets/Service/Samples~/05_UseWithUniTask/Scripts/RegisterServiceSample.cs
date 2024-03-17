@@ -1,8 +1,9 @@
 using System;
-using System.Threading.Tasks;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace GigaCreation.Tools.Service.Sample04
+namespace GigaCreation.Tools.Service.Sample05
 {
     public class RegisterServiceSample : MonoBehaviour
     {
@@ -22,22 +23,22 @@ namespace GigaCreation.Tools.Service.Sample04
 
             if (_unregisterAfterOneSecond)
             {
-                ValueTask _ = WaitAndUnregisterServiceAsync();
+                WaitAndUnregisterServiceAsync(this.GetCancellationTokenOnDestroy()).Forget();
             }
         }
 
         private void OnDestroy()
         {
-            ValueTask _ = UnregisterServiceAsync();
+            UnregisterServiceAsync().Forget();
         }
 
-        private async ValueTask WaitAndUnregisterServiceAsync()
+        private async UniTask WaitAndUnregisterServiceAsync(CancellationToken ct = default)
         {
-            await Task.Delay(TimeSpan.FromSeconds(1d));
+            await UniTask.Delay(TimeSpan.FromSeconds(1d), cancellationToken: ct);
             await UnregisterServiceAsync();
         }
 
-        private async ValueTask UnregisterServiceAsync()
+        private async UniTask UnregisterServiceAsync()
         {
             if (!ServiceLocator.IsRegistered(_sampleService))
             {
