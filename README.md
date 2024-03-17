@@ -121,6 +121,8 @@ public interface ISampleService : IService
 You can use `DisposeAsync()` by implementing `IAsyncDisposable` .
 
 ```cs
+using System;
+using System.Threading.Tasks;
 using GigaCreation.Tools.Service;
 using UnityEngine;
 
@@ -153,6 +155,8 @@ public interface ISampleService : IService, IAsyncDisposable
 UniTask is also supported.
 
 ```cs
+using System;
+using Cysharp.Threading.Tasks;
 using GigaCreation.Tools.Service;
 using UnityEngine;
 
