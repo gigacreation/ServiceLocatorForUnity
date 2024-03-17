@@ -116,6 +116,72 @@ public interface ISampleService : IService
 }
 ```
 
+### Dispose asynchronously
+
+You can use `DisposeAsync()` by implementing `IAsyncDisposable` .
+
+```cs
+using GigaCreation.Tools.Service;
+using UnityEngine;
+
+public class SampleService : ISampleService
+{
+    public void Bark()
+    {
+        Debug.Log("Meow!");
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        // First, print a message immediately when this method is called.
+        Debug.Log("Wait for 1 second...");
+
+        // We wait for 1 second.
+        await Task.Delay(TimeSpan.FromSeconds(1d));
+
+        // ISampleService inherits IAsyncDisposable, so this method is called on unregister asynchronously.
+        Debug.Log("SampleService disposed asynchronously.");
+    }
+}
+
+public interface ISampleService : IService, IAsyncDisposable
+{
+    void Bark();
+}
+```
+
+UniTask is also supported.
+
+```cs
+using GigaCreation.Tools.Service;
+using UnityEngine;
+
+public class SampleService : ISampleService
+{
+    public void Bark()
+    {
+        Debug.Log("Meow!");
+    }
+
+    public async UniTask DisposeAsync()
+    {
+        // First, print a message immediately when this method is called.
+        Debug.Log("Wait for 1 second...");
+
+        // We wait for 1 second.
+        await UniTask.Delay(TimeSpan.FromSeconds(1d));
+
+        // ISampleService inherits IUniTaskAsyncDisposable, so this method is called on unregister asynchronously.
+        Debug.Log("SampleService disposed asynchronously with UniTask.");
+    }
+}
+
+public interface ISampleService : IService, IUniTaskAsyncDisposable
+{
+    void Bark();
+}
+```
+
 ## API References
 
 <https://gigacreation.github.io/ServiceLocatorForUnity/api/GigaCreation.Tools.Service.ServiceLocator.html>
