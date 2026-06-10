@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.1 (2026-06-10)
+
+- Dropped support for Unity 2022 and earlier
+
 ## 1.2.0 (2024-03-17)
 
 - Add IAsyncDisposable and IUniTaskAsyncDisposable

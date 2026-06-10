@@ -1,9 +1,9 @@
 {
     "name": "jp.gigacreation.tools.servicelocator",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "displayName": "Service Locator",
     "description": "This package provides a service locator for your Unity project.",
-    "unity": "2021.3",
+    "unity": "6000.0",
     "author": {
         "name": "GIGA CREATION",
         "email": "gigacee@gigacreation.jp",

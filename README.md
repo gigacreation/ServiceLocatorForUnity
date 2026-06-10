@@ -23,7 +23,7 @@ public class SampleService : IService
 }
 ```
 
-2. Register your class in the service locator.
+1. Register your class in the service locator.
 
 ```cs
 using GigaCreation.Tools.Service;
@@ -47,7 +47,7 @@ public class RegisterServiceSample : MonoBehaviour
 }
 ```
 
-3. You can use your class anywhere!
+1. You can use your class anywhere!
 
 ```cs
 using GigaCreation.Tools.Service;
